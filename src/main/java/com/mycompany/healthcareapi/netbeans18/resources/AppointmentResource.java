@@ -21,6 +21,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author THISAL
  */
+@Path("/appointments")
 public class AppointmentResource {
     private AppointmentDAO appointmentDAO = new AppointmentDAO();
     
