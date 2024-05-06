@@ -26,6 +26,7 @@ public class DoctorResource {
     private DoctorDAO doctorDAO = new DoctorDAO();
     
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Doctor> getAllDoctors(){
         return doctorDAO.getAllDoctors();
     }
