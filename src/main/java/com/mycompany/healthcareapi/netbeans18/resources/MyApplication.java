@@ -19,6 +19,11 @@ public class MyApplication extends Application{
     public Set<Class<?>> getClasses(){
         Set<Class<?>> classes = new HashSet<>();
         classes.add(PatientResource.class);
+        classes.add(DoctorResource.class);
+        classes.add(AppointmentResource.class);
+        classes.add(MedicalRecordResource.class);
+        classes.add(PrescriptionResource.class);
+        classes.add(BillingResource.class);
         return classes;
     }
 }
