@@ -7,9 +7,11 @@ package com.mycompany.healthcareapi.netbeans18.resources;
 import com.mycompany.healthcareapi.netbeans18.dao.PatientDAO;
 import com.mycompany.healthcareapi.netbeans18.model.Patient;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -36,7 +38,17 @@ public class PatientResource {
         return patientDAO.getPatient(id);
     }
     
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces (MediaType.APPLICATION_JSON)
+    public Patient updatePatient(@PathParam("id")int id, Patient patient){
+        patientDAO.updatePatient(patient);
+        return patient;
+    }
+    
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces (MediaType.APPLICATION_JSON)
     public Patient createpatient(Patient patient){
         patientDAO.createPatient(patient);
