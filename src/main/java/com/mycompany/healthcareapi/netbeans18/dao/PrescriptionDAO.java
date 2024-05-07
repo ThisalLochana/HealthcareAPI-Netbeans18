@@ -4,6 +4,7 @@
  */
 package com.mycompany.healthcareapi.netbeans18.dao;
 
+import com.mycompany.healthcareapi.netbeans18.exception.PrescriptionNotFoundException;
 import com.mycompany.healthcareapi.netbeans18.model.Patient;
 import com.mycompany.healthcareapi.netbeans18.model.Prescription;
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class PrescriptionDAO {
                 return prescription;
             }
         }
-        return null;
+        throw new PrescriptionNotFoundException("Prescription with ID " + id + " not found.");
     }
 
     public void updatePrescription(Prescription prescription) {

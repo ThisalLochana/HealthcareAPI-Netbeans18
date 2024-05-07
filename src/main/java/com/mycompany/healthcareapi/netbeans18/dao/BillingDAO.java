@@ -4,6 +4,7 @@
  */
 package com.mycompany.healthcareapi.netbeans18.dao;
 
+import com.mycompany.healthcareapi.netbeans18.exception.BillingNotFoundException;
 import com.mycompany.healthcareapi.netbeans18.model.Billing;
 import com.mycompany.healthcareapi.netbeans18.model.Patient;
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class BillingDAO {
                 return billing;
             }
         }
-        return null;
+        throw new BillingNotFoundException("Billing with ID " + id + " not found.");
     }
     
     public void updateBilling(Billing billing) {

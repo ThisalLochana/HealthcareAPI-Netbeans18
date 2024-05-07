@@ -4,6 +4,7 @@
  */
 package com.mycompany.healthcareapi.netbeans18.dao;
 
+import com.mycompany.healthcareapi.netbeans18.exception.AppointmentNotFoundException;
 import com.mycompany.healthcareapi.netbeans18.model.Appointment;
 import com.mycompany.healthcareapi.netbeans18.model.Doctor;
 import com.mycompany.healthcareapi.netbeans18.model.Patient;
@@ -53,7 +54,7 @@ public class AppointmentDAO {
                 return appointment;
             }
         }
-        return null;
+        throw new AppointmentNotFoundException("Appointment with ID " + id + " not found.");
     }
     
     public void updateAppointment(Appointment appointment){

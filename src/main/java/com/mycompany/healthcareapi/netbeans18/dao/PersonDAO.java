@@ -4,6 +4,7 @@
  */
 package com.mycompany.healthcareapi.netbeans18.dao;
 
+import com.mycompany.healthcareapi.netbeans18.exception.PersonNotFoundException;
 import com.mycompany.healthcareapi.netbeans18.model.Person;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class PersonDAO {
                 return person;
             }
         }
-        return null;
+        throw new PersonNotFoundException("Person with ID " + id + " not found.");
     }
     
     public void updatePerson(Person person){
