@@ -15,6 +15,11 @@ public class Prescription {
     private String dosage;
     private String instructions;
     //private String duration;
+    
+    public Prescription(){
+        
+    }
+    
 
     public Prescription(int id, Patient patient, String medication, String dosage, String instructions) {
         this.id = id;

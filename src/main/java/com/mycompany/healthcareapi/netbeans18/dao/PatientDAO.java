@@ -15,14 +15,15 @@ import java.util.List;
 public class PatientDAO {
     private static List<Patient> patients = new ArrayList<>();
     
-    Patient p1 = new Patient("Good Medical History","Good Health", 100, "Thisal", "1234567890", "Colombo, Sri Lanka");
-    Patient p2 = new Patient("Bad Medical History","Bad Health", 101, "Kasun", "1234567890", "Kandy, Sri Lanka");
-
-    public PatientDAO() {
-        patients.add(p1);
-        patients.add(p2);
-    }
     
+
+    static{
+        Patient patient1 = new Patient("Heart Condition","Stable", 100, "Thisal", "1234567890", "Colombo, Sri Lanka");
+        Patient patient2 = new Patient("Asthma","Improving", 101, "Kasun", "1234567890", "Kandy, Sri Lanka");
+    
+        patients.add(patient1);
+        patients.add(patient2);
+    }
     
     public List<Patient> getAllPatients(){
         return patients;

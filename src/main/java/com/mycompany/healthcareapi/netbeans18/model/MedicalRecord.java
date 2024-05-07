@@ -12,6 +12,10 @@ public class MedicalRecord {
     private Patient patient;
     private String diagnosis;
     private String treatment;
+    
+    public MedicalRecord() {
+        
+    }
 
     public MedicalRecord(Patient patient, String diagnosis, String treatment) {
         this.patient = patient;

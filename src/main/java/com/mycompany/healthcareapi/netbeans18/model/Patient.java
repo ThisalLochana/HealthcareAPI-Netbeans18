@@ -11,6 +11,10 @@ package com.mycompany.healthcareapi.netbeans18.model;
 public class Patient extends Person{
     private String medicalHistory;
     private String currentHealthStatus;
+    
+    public Patient() {
+        super();
+    }
 
     public Patient(String medicalHistory, String currentHealthStatus, int id, String name, String contactInformation, String address) {
         super(id, name, contactInformation, address);

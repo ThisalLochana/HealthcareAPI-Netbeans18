@@ -15,6 +15,10 @@ import java.util.List;
 public class PersonDAO {
     private static List<Person> persons = new ArrayList<>();
     
+    public void createPerson(Person person){
+        persons.add(person);
+    }
+    
     public List<Person> getAllPersons(){
         return persons;
     }

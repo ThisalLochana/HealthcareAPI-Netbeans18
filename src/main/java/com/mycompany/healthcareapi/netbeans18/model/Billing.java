@@ -13,6 +13,10 @@ public class Billing {
     private Patient patient;
     private double amount;
     private boolean paid;
+    
+    public Billing(){
+        
+    }
 
     public Billing(int id, Patient patient, double amount, boolean paid) {
         this.id = id;

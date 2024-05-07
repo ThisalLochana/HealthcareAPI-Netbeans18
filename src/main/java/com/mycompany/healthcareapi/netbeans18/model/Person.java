@@ -13,6 +13,10 @@ public class Person {
     private String name;
     private String contactInformation;
     private String address;
+    
+    public Person(){
+        
+    }
 
     public Person(int id, String name, String contactInformation, String address) {
         this.id = id;

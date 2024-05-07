@@ -15,6 +15,14 @@ import java.util.List;
 public class DoctorDAO {
     public static List<Doctor> doctors = new ArrayList<>();
     
+    static{
+        Doctor doctor1 = new Doctor("Cardiologist",200,"Dr. Roshan Ranil Gunarathna", "08234923483", "Moratuwa, Sri Lanka");
+        Doctor doctor2 = new Doctor("Neurologist",201,"Dr. Ajanthan Sivalingam", "08234923483", "Colombo, Sri Lanka");
+        
+        doctors.add(doctor1);
+        doctors.add(doctor2);
+    }
+    
     public void createDoctor(Doctor doctor){
         doctors.add(doctor);
     }

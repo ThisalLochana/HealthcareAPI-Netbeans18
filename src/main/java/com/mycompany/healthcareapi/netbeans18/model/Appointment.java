@@ -15,6 +15,10 @@ public class Appointment {
     private LocalDateTime dateTime;
     private Patient patient;
     private Doctor doctor;
+    
+    public Appointment(){
+        
+    }
 
     public Appointment(int id, LocalDateTime dateTime, Patient patient, Doctor doctor) {
         this.id = id;
@@ -45,6 +49,10 @@ public class Appointment {
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+    
+    public void setDateTime(String dateTime) {
+        this.dateTime = LocalDateTime.parse(dateTime);
     }
 
     public void setPatient(Patient patient) {

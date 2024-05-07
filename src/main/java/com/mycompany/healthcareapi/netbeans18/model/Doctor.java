@@ -10,6 +10,10 @@ package com.mycompany.healthcareapi.netbeans18.model;
  */
 public class Doctor extends Person{
     private String specialization;
+    
+    public Doctor(){
+        super();
+    }
 
     public Doctor(String specialization, int id, String name, String contactInformation, String address) {
         super(id, name, contactInformation, address);

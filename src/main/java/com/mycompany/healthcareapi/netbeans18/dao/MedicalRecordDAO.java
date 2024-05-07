@@ -5,6 +5,7 @@
 package com.mycompany.healthcareapi.netbeans18.dao;
 
 import com.mycompany.healthcareapi.netbeans18.model.MedicalRecord;
+import com.mycompany.healthcareapi.netbeans18.model.Patient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,27 @@ import java.util.List;
  */
 public class MedicalRecordDAO {
     private static List<MedicalRecord> medicalRecords = new ArrayList<>();
+    
+    static{
+        // Dummy data for patients
+        Patient patient1 = new Patient("Heart condition", "Stable", 101, "John Doe", "john.doe@example.com", "123 Main St");
+        Patient patient2 = new Patient("Skin allergies", "Improving", 102, "Jane Smith", "jane.smith@example.com", "456 Oak St");
+        
+        PatientDAO patientDAO = new PatientDAO();
+
+        // Creating two MedicalRecord objects
+        MedicalRecord medicalRecord1 = new MedicalRecord(patient1, "Hypertension", "Prescription medication and lifestyle changes");
+        MedicalRecord medicalRecord2 = new MedicalRecord(patient2, "Allergic dermatitis", "Topical corticosteroids and antihistamines");
+        MedicalRecord medicalRecord3 = new MedicalRecord(patientDAO.getPatient(100), "Allergic dermatitis", "Topical corticosteroids and antihistamines");
+        
+        medicalRecords.add(medicalRecord1);
+        medicalRecords.add(medicalRecord2);
+        medicalRecords.add(medicalRecord3);
+    }
+    
+    public void createMedicalRecord(MedicalRecord medicalRecord){
+        medicalRecords.add(medicalRecord);
+    }
 
     public List<MedicalRecord> getAllMedicalRecords() {
         return medicalRecords;

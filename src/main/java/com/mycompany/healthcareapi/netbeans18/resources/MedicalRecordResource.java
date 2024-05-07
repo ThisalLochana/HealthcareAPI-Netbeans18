@@ -43,7 +43,7 @@ public class MedicalRecordResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public MedicalRecord createMedicalRecord(MedicalRecord medicalRecord) {
-        medicalRecordDAO.updateMedicalRecord(medicalRecord);
+        medicalRecordDAO.createMedicalRecord(medicalRecord);
         return medicalRecord;
     }
 
