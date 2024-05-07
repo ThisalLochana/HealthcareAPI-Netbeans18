@@ -22,16 +22,28 @@ import javax.ws.rs.core.MediaType;
  *
  * @author THISAL
  */
+/**
+ * RESTful resource for managing Medical Records.
+ */
 @Path("/medicalRecords")
 public class MedicalRecordResource {
     private MedicalRecordDAO medicalRecordDAO = new MedicalRecordDAO();
 
+    /**
+     * Retrieves all medical records.
+     * @return List of all medical records.
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<MedicalRecord> getAllMedicalRecords() {
         return medicalRecordDAO.getAllMedicalRecords();
     }
 
+    /**
+     * Retrieves a medical record by ID.
+     * @param id The ID of the medical record to retrieve.
+     * @return The medical record with the specified ID.
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -39,6 +51,11 @@ public class MedicalRecordResource {
         return medicalRecordDAO.getMedicalRecord(id);
     }
 
+    /**
+     * Creates a new medical record.
+     * @param medicalRecord The medical record to be created.
+     * @return The created medical record.
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -47,6 +64,12 @@ public class MedicalRecordResource {
         return medicalRecord;
     }
 
+    /**
+     * Updates an existing medical record.
+     * @param id The ID of the medical record to update.
+     * @param medicalRecord The updated medical record.
+     * @return The updated medical record.
+     */
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -56,6 +79,10 @@ public class MedicalRecordResource {
         return medicalRecord;
     }
 
+    /**
+     * Deletes a medical record by ID.
+     * @param id The ID of the medical record to delete.
+     */
     @DELETE
     @Path("/{id}")
     public void deleteMedicalRecord(@PathParam("id") int id) {

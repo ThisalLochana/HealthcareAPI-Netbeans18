@@ -21,6 +21,9 @@ import javax.ws.rs.core.MediaType;
  *
  * @author THISAL
  */
+/**
+ * RESTful resource for managing patient data.
+ */
 @Path("/patients")
 public class PatientResource {
     private PatientDAO patientDAO = new PatientDAO();
@@ -33,7 +36,7 @@ public class PatientResource {
     
     @GET
     @Path("/{id}")
-    @Produces (MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Patient getPatient(@PathParam("id") int id){
         return patientDAO.getPatient(id);
     }
@@ -41,7 +44,7 @@ public class PatientResource {
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces (MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Patient updatePatient(@PathParam("id")int id, Patient patient){
         patientDAO.updatePatient(patient);
         return patient;
@@ -49,16 +52,14 @@ public class PatientResource {
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces (MediaType.APPLICATION_JSON)
-    public Patient createpatient(Patient patient){
+    @Produces(MediaType.APPLICATION_JSON)
+    public Patient createPatient(Patient patient){
         patientDAO.createPatient(patient);
         return patient;
     }
     
-    
     @DELETE
     @Path("/{id}")
-    @Produces (MediaType.APPLICATION_JSON)
     public void deletePatient(@PathParam("id")int id){
         patientDAO.deletePatient(id);
     }

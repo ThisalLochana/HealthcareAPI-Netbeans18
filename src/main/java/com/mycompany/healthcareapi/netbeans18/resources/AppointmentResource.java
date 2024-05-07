@@ -21,16 +21,28 @@ import javax.ws.rs.core.MediaType;
  *
  * @author THISAL
  */
+/**
+ * RESTful resource for managing Appointments.
+ */
 @Path("/appointments")
 public class AppointmentResource {
     private AppointmentDAO appointmentDAO = new AppointmentDAO();
     
+    /**
+     * Retrieves all appointments.
+     * @return List of all appointments.
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Appointment> getAllAppointments(){
         return appointmentDAO.getAllAppointments();
     }
     
+    /**
+     * Retrieves an appointment by ID.
+     * @param id The ID of the appointment to retrieve.
+     * @return The appointment with the specified ID.
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -38,6 +50,11 @@ public class AppointmentResource {
         return appointmentDAO.getAppointment(id);
     }
     
+    /**
+     * Creates a new appointment.
+     * @param appointment The appointment to be created.
+     * @return The created appointment.
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,6 +63,12 @@ public class AppointmentResource {
         return appointment;
     }
     
+    /**
+     * Updates an existing appointment.
+     * @param id The ID of the appointment to update.
+     * @param appointment The updated appointment.
+     * @return The updated appointment.
+     */
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -55,6 +78,10 @@ public class AppointmentResource {
         return appointment;
     }
     
+    /**
+     * Deletes an appointment by ID.
+     * @param id The ID of the appointment to delete.
+     */
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

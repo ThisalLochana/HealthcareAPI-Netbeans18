@@ -21,6 +21,9 @@ import javax.ws.rs.core.MediaType;
  *
  * @author THISAL
  */
+/**
+ * RESTful resource for managing prescription data.
+ */
 @Path("/prescriptions")
 public class PrescriptionResource {
     private PrescriptionDAO prescriptionDAO = new PrescriptionDAO();

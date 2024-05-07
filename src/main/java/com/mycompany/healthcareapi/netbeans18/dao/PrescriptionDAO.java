@@ -17,6 +17,7 @@ import java.util.List;
 public class PrescriptionDAO {
     private static List<Prescription> prescriptions = new ArrayList<>();
     
+    // Static block to initialize some sample prescription data
     static{
         // Dummy data for patients
         Patient patient1 = new Patient("Heart condition", "Stable", 101, "John Doe", "john.doe@example.com", "123 Main St");
@@ -26,18 +27,33 @@ public class PrescriptionDAO {
         Prescription prescription1 = new Prescription(1, patient1, "Aspirin", "500mg", "Take one tablet daily with food");
         Prescription prescription2 = new Prescription(2, patient2, "Cetirizine", "10mg", "Take one tablet at bedtime");
         
+        // Adding sample prescriptions to the list
         prescriptions.add(prescription1);
         prescriptions.add(prescription2);
     }
 
+    /**
+     * Creates a new prescription.
+     * @param prescription The prescription to be created.
+     */
     public void createPrescription(Prescription prescription) {
         prescriptions.add(prescription);
     }
     
+    /**
+     * Retrieves all prescriptions.
+     * @return List of all prescriptions.
+     */
     public List<Prescription> getAllPrescriptions() {
         return prescriptions;
     }
 
+    /**
+     * Retrieves a prescription by ID.
+     * @param id The ID of the prescription to retrieve.
+     * @return The prescription with the specified ID.
+     * @throws PrescriptionNotFoundException If the prescription with the specified ID is not found.
+     */
     public Prescription getPrescription(int id) {
         for (Prescription prescription : prescriptions) {
             if (prescription.getId() == id) {
@@ -47,6 +63,10 @@ public class PrescriptionDAO {
         throw new PrescriptionNotFoundException("Prescription with ID " + id + " not found.");
     }
 
+    /**
+     * Updates an existing prescription.
+     * @param prescription The updated prescription.
+     */
     public void updatePrescription(Prescription prescription) {
         for (Prescription p : prescriptions) {
             if (p.getId() == prescription.getId()) {
@@ -59,6 +79,10 @@ public class PrescriptionDAO {
         }
     }
 
+    /**
+     * Deletes a prescription by ID.
+     * @param id The ID of the prescription to be deleted.
+     */
     public void deletePrescription(int id){
         Prescription prescriptionToRemove = null;
         for(Prescription prescription: prescriptions){

@@ -16,14 +16,28 @@ import java.util.List;
 public class PersonDAO {
     private static List<Person> persons = new ArrayList<>();
     
+    /**
+     * Creates a new person.
+     * @param person The person to be created.
+     */
     public void createPerson(Person person){
         persons.add(person);
     }
     
+    /**
+     * Retrieves all persons.
+     * @return List of all persons.
+     */
     public List<Person> getAllPersons(){
         return persons;
     }
     
+    /**
+     * Retrieves a person by ID.
+     * @param id The ID of the person to retrieve.
+     * @return The person with the specified ID.
+     * @throws PersonNotFoundException If the person with the specified ID is not found.
+     */
     public Person getPerson(int id){
         for(Person person : persons){
             if(person.getId() == id){
@@ -33,6 +47,10 @@ public class PersonDAO {
         throw new PersonNotFoundException("Person with ID " + id + " not found.");
     }
     
+    /**
+     * Updates an existing person.
+     * @param person The updated person.
+     */
     public void updatePerson(Person person){
         for(Person p : persons){
             if(p.getId() == person.getId()){
@@ -44,6 +62,10 @@ public class PersonDAO {
         }
     }
     
+    /**
+     * Deletes a person by ID.
+     * @param id The ID of the person to be deleted.
+     */
     public void deletePerson(int id){
         for(Person p : persons){
             if(p.getId() == id){

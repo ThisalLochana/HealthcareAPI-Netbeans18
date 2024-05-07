@@ -21,16 +21,28 @@ import javax.ws.rs.core.MediaType;
  *
  * @author THISAL
  */
+/**
+ * RESTful resource for managing Billings.
+ */
 @Path("/billings")
 public class BillingResource {
     private BillingDAO billingDAO = new BillingDAO();
 
+    /**
+     * Retrieves all billings.
+     * @return List of all billings.
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Billing> getAllBillings() {
         return billingDAO.getBillings();
     }
 
+    /**
+     * Retrieves a billing by ID.
+     * @param id The ID of the billing to retrieve.
+     * @return The billing with the specified ID.
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -38,6 +50,11 @@ public class BillingResource {
         return billingDAO.getBilling(id);
     }
 
+    /**
+     * Creates a new billing.
+     * @param billing The billing to be created.
+     * @return The created billing.
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,6 +63,12 @@ public class BillingResource {
         return billing;
     }
 
+    /**
+     * Updates an existing billing.
+     * @param id The ID of the billing to update.
+     * @param billing The updated billing.
+     * @return The updated billing.
+     */
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -55,6 +78,10 @@ public class BillingResource {
         return billing;
     }
 
+    /**
+     * Deletes a billing by ID.
+     * @param id The ID of the billing to delete.
+     */
     @DELETE
     @Path("/{id}")
     public void deleteBilling(@PathParam("id") int id) {

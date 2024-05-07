@@ -21,23 +21,40 @@ import javax.ws.rs.core.MediaType;
  *
  * @author THISAL
  */
+/**
+ * RESTful resource for managing Doctors.
+ */
 @Path("/doctors")
 public class DoctorResource {
     private DoctorDAO doctorDAO = new DoctorDAO();
     
+    /**
+     * Retrieves all doctors.
+     * @return List of all doctors.
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Doctor> getAllDoctors(){
         return doctorDAO.getAllDoctors();
     }
     
+    /**
+     * Retrieves a doctor by ID.
+     * @param id The ID of the doctor to retrieve.
+     * @return The doctor with the specified ID.
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Doctor getDoctor(@PathParam("id")int id){
-        return doctorDAO.getDOctor(id);
+        return doctorDAO.getDoctor(id);
     }
     
+    /**
+     * Creates a new doctor.
+     * @param doctor The doctor to be created.
+     * @return The created doctor.
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,6 +63,12 @@ public class DoctorResource {
         return doctor;
     }
     
+    /**
+     * Updates an existing doctor.
+     * @param id The ID of the doctor to update.
+     * @param doctor The updated doctor.
+     * @return The updated doctor.
+     */
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -55,6 +78,10 @@ public class DoctorResource {
         return doctor;
     }
     
+    /**
+     * Deletes a doctor by ID.
+     * @param id The ID of the doctor to delete.
+     */
     @DELETE
     @Path("/{id}")
     @Produces (MediaType.APPLICATION_JSON)

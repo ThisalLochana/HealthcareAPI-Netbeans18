@@ -13,10 +13,13 @@ import javax.ws.rs.core.Application;
  *
  * @author THISAL
  */
+/**
+ * JAX-RS application configuration class.
+ */
 @ApplicationPath("rest")
-public class MyApplication extends Application{
+public class MyApplication extends Application {
     @Override
-    public Set<Class<?>> getClasses(){
+    public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<>();
         classes.add(PatientResource.class);
         classes.add(DoctorResource.class);

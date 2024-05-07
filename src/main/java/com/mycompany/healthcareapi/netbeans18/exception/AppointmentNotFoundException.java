@@ -8,8 +8,13 @@ package com.mycompany.healthcareapi.netbeans18.exception;
  *
  * @author THISAL
  */
-public class AppointmentNotFoundException extends RuntimeException{
-    public AppointmentNotFoundException(String message){
+public class AppointmentNotFoundException extends RuntimeException {
+    
+    /**
+     * Constructs a new AppointmentNotFoundException with the specified detail message.
+     * @param message the detail message (which is saved for later retrieval by the getMessage() method).
+     */
+    public AppointmentNotFoundException(String message) {
         super(message);
     }
 }
